@@ -1,0 +1,116 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Stackage for your Nix</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="img/favicon-96.png" sizes="96x96">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header>
+                        <h1>Stackage for your Nix</h1>
+
+                        <p>A collection of <code>nixpkgs</code> overlays corresponding to Stackage snapshots.</p>
+                    </header>
+                    <section>
+                        <section>
+                            <h3>Use a snapshot in your Haskell project</h3>
+                            <figure>
+<pre><code class="language-nix">{ nixpkgs ? import &lt;nixpkgs&gt; }:
+
+let
+  snapshot = "lts-11.11";
+  stackage = import (fetchTarball {
+    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
+    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+  });
+  pkgs = nixpkgs { overlays = [ stackage."${snapshot}" ]; };
+
+in
+
+# Now you can access `pkgs.haskell.packages."${snapshot}"`
+...
+</code></pre>
+                            </figure>
+                        </section>
+                        <section>
+                            <h3>Add all snapshots to your global nixpkgs config</h3>
+                            <figure>
+                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/all-stackage.nix</code></figcaption>
+<pre><code class="language-nix">self: super:
+
+let
+  inherit (super.lib) composeExtensions foldr;
+
+  composeExtensionList = foldr composeExtensions (_:_:{});
+
+  stackage = import (fetchTarball {
+    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
+    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+  });
+
+in composeExtensionList stackage._all self super
+</code></pre>
+                            </figure>
+                        </section>
+                        <section>
+                            <h3>Use an LTS as your primary Haskell packages set</h3>
+
+                            First add all snapshots as explained in the previous section and then:
+
+                            <figure>
+                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/haskell-lts.nix</code></figcaption>
+<pre><code class="language-nix">self: super: {
+  haskellPackages = super.haskell.packages."lts-11.11";
+}
+</code></pre>
+                            </figure>
+                        </section>
+                    </section>
+                </article>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <a href="https://serokell.io">Serokell</a> ❤ Nix.
+                <a href="https://github.com/serokell/serokell-stackage">Source</a> on GitHub
+            </footer>
+        </div>
+
+        <script src="js/prism.js"></script>
+
+        <!--
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        -->
+    </body>
+</html>

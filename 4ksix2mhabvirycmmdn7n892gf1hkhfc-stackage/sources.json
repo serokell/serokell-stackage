@@ -1,0 +1,22 @@
+{
+"lts-8.20": {"file": "lts-8.20.tar.gz", "sha256": "087q5c6grkmgcbkw77fp48mg5jsmchz9lzssjpcd7csla5lfsdgb"},
+"lts-8.21": {"file": "lts-8.21.tar.gz", "sha256": "13q01svsgaxwwinb42fkqjqzkqfvk8f991ikcdlk8nhdl8chbprg"},
+"lts-8.22": {"file": "lts-8.22.tar.gz", "sha256": "1sl1y7w7wx3akhqzvbrvir5kjxfc9vb07621h74ja2a94q6q2lkh"},
+"lts-8.23": {"file": "lts-8.23.tar.gz", "sha256": "10w9y37v70kjc5g6ssaac6sma43pzvh119n7iw1yw87i2j3h22lv"},
+"lts-8.24": {"file": "lts-8.24.tar.gz", "sha256": "0ydla1f4kdbcyw83sa95lxsjlycg2qphz412kz1f1p01axpwbwy4"},
+"lts-9.17": {"file": "lts-9.17.tar.gz", "sha256": "0dd3wzigw979k9cj5fpglsc95mp7b51h0c8q38vfgivgnlmkzq6g"},
+"lts-9.18": {"file": "lts-9.18.tar.gz", "sha256": "0idvky6mm229hf7kz4zdxs288fb41i2ni7ihzfiil0k9l046yjsy"},
+"lts-9.19": {"file": "lts-9.19.tar.gz", "sha256": "1qbsfrax1ym126yhkbvwlqf4rmmqyklix4xssw364yivxffgysa5"},
+"lts-9.20": {"file": "lts-9.20.tar.gz", "sha256": "0pazwd9qsf8i7dxyrlxr9r7c5nwdaww3r4vjl6ig67m5p2hvk5vi"},
+"lts-9.21": {"file": "lts-9.21.tar.gz", "sha256": "1s9qpcgbnysl8hv3d3m2279051jaf1js24hrfly8aw499d0wz444"},
+"lts-10.6": {"file": "lts-10.6.tar.gz", "sha256": "13whai1dhf6w0yi2ivsh91vi7lw9dfjdg2w6qxhyh2znbylynakk"},
+"lts-10.7": {"file": "lts-10.7.tar.gz", "sha256": "11rkwpc844wq1gdf93clsgc5kxfhmnzsgsnlfmp7sm5ys3jc9jl7"},
+"lts-10.8": {"file": "lts-10.8.tar.gz", "sha256": "0a5lyhi17pa86vrk2w8w9gh3071ki1rfdgjydawjjw1ra21q2gpw"},
+"lts-10.9": {"file": "lts-10.9.tar.gz", "sha256": "04wyz4wjz9j4fp0cq7vjfk2fg0j82bswk4cqcc9z3a0yxci7c2s2"},
+"lts-10.10": {"file": "lts-10.10.tar.gz", "sha256": "0dz73y5yqvvmmvkp5r3d4swi1bl19i1idm1rqxslnn0qpwjncsy6"},
+"lts-11.10": {"file": "lts-11.10.tar.gz", "sha256": "022xi22i5sw65a3lm051apcrxm70dhm8gjj356lny2dbpgvh70qy"},
+"lts-11.11": {"file": "lts-11.11.tar.gz", "sha256": "073hv7lwxz8d01cqg79fmhk975psxma12d3kf1rsiy9h2ypiv3ll"},
+"lts-11.12": {"file": "lts-11.12.tar.gz", "sha256": "18ppbsg0vi08pys38bb9jj5pvx6fgxsdlqg4h6g2n7v08iglyr28"},
+"lts-11.13": {"file": "lts-11.13.tar.gz", "sha256": "13ds4va1qdmh1dm9ac88vi3s8hm1kk86lxhj9a4c2cwlfn0d2k9v"},
+"lts-11.14": {"file": "lts-11.14.tar.gz", "sha256": "0cfnvc06rrd1g6v2dpfjrsxjwflj9nprccaj5qmzv8wrbl1jzrnl"}
+}
