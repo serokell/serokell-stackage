@@ -19,4 +19,5 @@ import ./. {
     sha256 = stackageNixSha;
   };
   baseUrl = "https://stackage.serokell.io";
+  googleAnalytics = "UA-122497911-1";
 }

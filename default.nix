@@ -3,6 +3,7 @@
 , stackageNixSrc
 , stackageSrc
 , baseUrl
+, googleAnalytics ? ""
 }:
 
 let
@@ -24,6 +25,8 @@ in pkgs.stdenvNoCC.mkDerivation {
     patchVar "baseUrl" "${baseUrl}"
     patchVar "generationId" $(basename "${stackageNix}")
     patchVar "tarballSha256" $(cat "${stackageNix}/default.nix.tar.gz.sha256")
+
+    patchVar "googleAnalytics" "${googleAnalytics}"
 
     ln -s "${stackageNix}" "$out/"
   '';
