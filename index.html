@@ -55,6 +55,25 @@ in
                             </figure>
                         </section>
                         <section>
+                            <h3>Add a snapshot to your global nixpkgs config</h3>
+                            <figure>
+                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/lts-11.11.nix</code></figcaption>
+<pre><code class="language-nix">let
+  stackage = import (fetchTarball {
+    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
+    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+  });
+
+in stackage."lts-11.11"
+</code></pre>
+                            </figure>
+
+                            <p>And now you can install <code>pandoc</code> from LTS 11.11 by running:</p>
+                            <figure>
+                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-11.11".pandoc'</code></pre>
+                            </figure>
+                        </section>
+                        <section>
                             <h3>Add all snapshots to your global nixpkgs config</h3>
                             <figure>
                                 <figcaption>Save this as <code>~/.config/nixpkgs/overlays/all-stackage.nix</code></figcaption>
@@ -73,16 +92,21 @@ let
 in composeExtensionList stackage._all self super
 </code></pre>
                             </figure>
+
+                            <p>And you still can install <code>pandoc</code> from LTS 11.11 by running:</p>
+                            <figure>
+                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-11.11".pandoc'</code></pre>
+                            </figure>
                         </section>
                         <section>
                             <h3>Use an LTS as your primary Haskell packages set</h3>
 
-                            First add all snapshots as explained in the previous section and then:
+                            First make sure the snapshot is available as explained in one of the two previous sections and then:
 
                             <figure>
-                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/haskell-lts.nix</code></figcaption>
+                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/haskell-stackage.nix</code></figcaption>
 <pre><code class="language-nix">self: super: {
-  haskellPackages = super.haskell.packages."lts-11.11";
+  haskellPackages = self.haskell.packages."lts-11.11";
 }
 </code></pre>
                             </figure>
