@@ -120,6 +120,7 @@ pre {
     border-left: solid 1px #cccccc;
     margin-left: -1em;
     padding-left: 1em;
+    overflow: auto;
 }
 
 figcaption {

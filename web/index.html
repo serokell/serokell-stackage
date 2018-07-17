@@ -15,6 +15,7 @@
         <link rel="icon" type="image/png" href="img/favicon-96.png" sizes="96x96">
 
         <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/prism.css">
         <link rel="stylesheet" href="css/main.css">
 
         <!--[if lt IE 9]>
@@ -36,8 +37,7 @@
                         <section>
                             <h3>Use a snapshot in your Haskell project</h3>
                             <figure>
-<code><pre>
-{ nixpkgs ? import &lt;nixpkgs&gt; }:
+<pre><code class="language-nix">{ nixpkgs ? import &lt;nixpkgs&gt; }:
 
 let
   snapshot = "lts-11.11";
@@ -51,15 +51,14 @@ in
 
 # Now you can access `pkgs.haskell.packages."${snapshot}"`
 ...
-</pre></code>
+</code></pre>
                             </figure>
                         </section>
                         <section>
                             <h3>Add all snapshots to your global nixpkgs config</h3>
                             <figure>
                                 <figcaption>Save this as <code>~/.config/nixpkgs/overlays/all-stackage.nix</code></figcaption>
-<code><pre>
-self: super:
+<pre><code class="language-nix">self: super:
 
 let
   inherit (super.lib) composeExtensions foldr;
@@ -72,7 +71,7 @@ let
   });
 
 in composeExtensionList stackage._all self super
-</pre></code>
+</code></pre>
                             </figure>
                         </section>
                         <section>
@@ -82,11 +81,10 @@ in composeExtensionList stackage._all self super
 
                             <figure>
                                 <figcaption>Save this as <code>~/.config/nixpkgs/overlays/haskell-lts.nix</code></figcaption>
-<code><pre>
-self: super: {
+<pre><code class="language-nix">self: super: {
   haskellPackages = super.haskell.packages."lts-11.11";
 }
-</pre></code>
+</code></pre>
                             </figure>
                         </section>
                     </section>
@@ -101,6 +99,8 @@ self: super: {
                 <a href="https://github.com/serokell/serokell-stackage">Source</a> on GitHub
             </footer>
         </div>
+
+        <script src="js/prism.js"></script>
 
         <!--
         <script>
