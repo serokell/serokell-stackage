@@ -42,8 +42,8 @@
 let
   snapshot = "lts-11.11";
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
-    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
+    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
   });
   pkgs = nixpkgs { overlays = [ stackage."${snapshot}" ]; };
 
@@ -60,8 +60,8 @@ in
                                 <figcaption>Save this as <code>~/.config/nixpkgs/overlays/lts-11.11.nix</code></figcaption>
 <pre><code class="language-nix">let
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
-    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
+    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
   });
 
 in stackage."lts-11.11"
@@ -85,8 +85,8 @@ let
   composeExtensionList = foldr composeExtensions (_:_:{});
 
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/4ksix2mhabvirycmmdn7n892gf1hkhfc-stackage/default.nix.tar.gz";
-    sha256 = "0hvbf51m0ci41gd6cyffz5vm3308w6nhp7l7cj3f5i04zn0dr8lq";
+    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
+    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
   });
 
 in composeExtensionList stackage._all self super
