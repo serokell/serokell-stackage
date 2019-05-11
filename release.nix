@@ -4,8 +4,8 @@ let
   stackageRev = "b69b9987e989c925c2bc467f409b259fe248106f";
   stackageSha = "0p31hnnn6fdni3mr142bwnl0kdgx39m3jc9py3qvdfy1nbdmvakz";
 
-  stackageNixRev = "bbb01f8c59a4afaa4ddf3c00f94be5d91ada89f8";
-  stackageNixSha = "0sh17cgbm03ln24whhqwr4la8ksbb3cwlncm61xfh59yr8qlaa5q";
+  stackageNixRev = "9bed42a3518de50a021bacea4c0747887d27aa67";
+  stackageNixSha = "05xax06sn92nprcxzi7x95paj7sqjqczdalkr5pjljcxklvyh2j0";
 in
 
 import ./. {
