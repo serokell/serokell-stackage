@@ -40,10 +40,10 @@
 <pre><code class="language-nix">{ nixpkgs ? import &lt;nixpkgs&gt; }:
 
 let
-  snapshot = "lts-11.11";
+  snapshot = "lts-13.3";
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
-    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
+    url = "https://stackage.serokell.io/hjfdwpyh7fnws0bgq6y4gsaily4y7wxx-stackage/default.nix.tar.gz";
+    sha256 = "1diqi8sif6xzc03kbsi8hwg9fiwmzvniiyhpffydvzq60g555jab";
   });
   pkgs = nixpkgs { overlays = [ stackage."${snapshot}" ]; };
 
@@ -57,20 +57,20 @@ in
                         <section>
                             <h3>Add a snapshot to your global nixpkgs config</h3>
                             <figure>
-                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/lts-11.11.nix</code></figcaption>
+                                <figcaption>Save this as <code>~/.config/nixpkgs/overlays/lts-13.3.nix</code></figcaption>
 <pre><code class="language-nix">let
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
-    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
+    url = "https://stackage.serokell.io/hjfdwpyh7fnws0bgq6y4gsaily4y7wxx-stackage/default.nix.tar.gz";
+    sha256 = "1diqi8sif6xzc03kbsi8hwg9fiwmzvniiyhpffydvzq60g555jab";
   });
 
-in stackage."lts-11.11"
+in stackage."lts-13.3"
 </code></pre>
                             </figure>
 
-                            <p>And now you can install <code>pandoc</code> from LTS 11.11 by running:</p>
+                            <p>And now you can install <code>pandoc</code> from LTS 13.3 by running:</p>
                             <figure>
-                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-11.11".pandoc'</code></pre>
+                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-13.3".pandoc'</code></pre>
                             </figure>
                         </section>
                         <section>
@@ -85,17 +85,17 @@ let
   composeExtensionList = foldr composeExtensions (_:_:{});
 
   stackage = import (fetchTarball {
-    url = "https://stackage.serokell.io/drczwlyf6mi0ilh3kgv01wxwjfgvq14b-stackage/default.nix.tar.gz";
-    sha256 = "1bwlbxx6np0jfl6z9gkmmcq22crm0pa07a8zrwhz5gkal64y6jpz";
+    url = "https://stackage.serokell.io/hjfdwpyh7fnws0bgq6y4gsaily4y7wxx-stackage/default.nix.tar.gz";
+    sha256 = "1diqi8sif6xzc03kbsi8hwg9fiwmzvniiyhpffydvzq60g555jab";
   });
 
 in composeExtensionList stackage._all self super
 </code></pre>
                             </figure>
 
-                            <p>And you still can install <code>pandoc</code> from LTS 11.11 by running:</p>
+                            <p>And you still can install <code>pandoc</code> from LTS 13.3 by running:</p>
                             <figure>
-                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-11.11".pandoc'</code></pre>
+                                <pre><code>nix-env -iA 'nixpkgs.haskell.packages."lts-13.3".pandoc'</code></pre>
                             </figure>
                         </section>
                         <section>
@@ -106,7 +106,7 @@ in composeExtensionList stackage._all self super
                             <figure>
                                 <figcaption>Save this as <code>~/.config/nixpkgs/overlays/haskell-stackage.nix</code></figcaption>
 <pre><code class="language-nix">self: super: {
-  haskellPackages = self.haskell.packages."lts-11.11";
+  haskellPackages = self.haskell.packages."lts-13.3";
 }
 </code></pre>
                             </figure>
