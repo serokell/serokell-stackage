@@ -1,0 +1,14 @@
+env:
+  NIX_PATH: nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos
+
+steps:
+  - label: nix-build
+    commands:
+      - nix-build release.nix
+  - wait
+  - label: deploy
+    branches: master
+    commands:
+      - nix-build release.nix
+      - mkdir -p ~/cd/serokell-stackage/
+      - cp -LRf result/* ~/cd/serokell-stackage/
