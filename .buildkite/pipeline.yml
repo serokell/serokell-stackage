@@ -11,4 +11,5 @@ steps:
     commands:
       - nix-build release.nix
       - mkdir -p ~/cd/serokell-stackage/
+      - chmod -R u+w ~/cd/serokell-stackage/
       - cp -LRf result/* ~/cd/serokell-stackage/
