@@ -1,5 +1,7 @@
 env:
   NIX_PATH: nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos
+  CDN_DISTRIBUTION_ID: EJDECDYLB54TF
+  CDN_BUCKET: s3://stackage.serokell.io
 
 steps:
   - label: nix-build
@@ -10,6 +12,7 @@ steps:
     branches: master
     commands:
       - nix-build release.nix
-      - mkdir -p ~/cd/serokell-stackage/
-      - chmod -R u+w ~/cd/serokell-stackage/
-      - cp -LRf result/* ~/cd/serokell-stackage/
+      - nix run nixpkgs.awscli -c
+          aws s3 sync result/ "$CDN_BUCKET"
+      - nix run nixpkgs.awscli -c
+          aws cloudfront create-invalidation --distribution-id "$CDN_DISTRIBUTION_ID" --paths '/*'
